@@ -1,0 +1,103 @@
+import React from 'react';
+import './Work.css';
+
+class Work extends React.Component {
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			isLoading: true,
+			urls: [
+				'https://apps.apple.com/br/app/harmonify-cores-e-paletas/id1467642991',
+				'https://apps.apple.com/br/app/bubbles-why-not/id1458220809',
+				'https://apps.apple.com/br/app/zombie-apocalypse/id1504183894',
+				'https://apps.apple.com/br/app/the-movie-genie/id1462797983',
+				'https://apps.apple.com/br/app/pocket-pastre/id1497205539',
+				'https://apps.apple.com/br/app/studying-with-pc/id1463404891',
+				'https://apps.apple.com/br/app/cube-h/id1491076636',
+				'https://apps.apple.com/br/app/space/id1477382763',
+				'https://apps.apple.com/br/app/jumpy-aliens/id1500965920',
+				'https://apps.apple.com/br/app/activities-manager/id1464430414',
+			],
+			loadedApps: []
+		};
+
+	}
+
+	componentDidMount() {
+		this.loadApps()
+	}
+
+	doScrap(htmlString, url) {
+  		var el = document.createElement( 'html' );
+  		el.innerHTML = htmlString;
+  		const name = el.getElementsByClassName("product-header__title app-header__title")[0].innerHTML.split("<")[0].trim()
+  		const descriptionHTML = el.getElementsByClassName("we-truncate we-truncate--multi-line we-truncate--interactive ember-view l-column small-12 medium-9 large-8")[0].children[0].innerHTML
+  		const imageTags = el.getElementsByClassName("l-row l-row--peek we-screenshot-viewer__screenshots-list")[0].getElementsByTagName("li")
+  		var images = []
+
+  		for(let li of imageTags) {
+			const source = li.getElementsByClassName("we-artwork__source")[0].srcset.split(" ")[0]
+			images.push(source)
+  		}
+
+  		var joined = this.state.loadedApps.concat({
+				name: name,
+				descriptionHTML: descriptionHTML,
+				images: images,
+  			}
+  		)
+  		console.log(images)
+  		this.setState({ loadedApps:  joined })
+	}
+
+	doGet(url) {
+    	var xhr = new XMLHttpRequest()
+
+		xhr.addEventListener('load', () => {
+			this.doScrap(xhr.responseText, url)
+	    })
+	    // open the request with the verb and the url
+	    xhr.open('GET', url)
+	    // send the request
+	    xhr.send()
+	}
+
+	loadApps() {
+  		var joined = this.state.loadedApps.concat({
+				name: "name",
+				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
+				imageTags: "imageTags",
+				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
+  			}
+  		)
+
+  		this.setState({ loadedApps:  joined })
+		// this.state.urls.forEach( value => this.doGet(value) )
+	}
+
+	isLoading() {
+		return true
+		return this.state.loadedApps.length === this.state.urls.length
+	}
+
+	render() {
+		if(this.isLoading()) {
+			return (
+			    <div>
+
+			    </div>
+			);
+		}
+
+
+		return (
+		    <div>
+
+		    </div>
+		);
+	}
+}
+
+export default Work;
