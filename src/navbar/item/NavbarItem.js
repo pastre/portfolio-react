@@ -3,7 +3,7 @@ import './NavbarItem.css';
 
 class NavbarItem extends React.Component { 
   handleClick = () => {
-    console.log('this is:', this);
+    window.open( this.props.url , "_blank")
   }
   render() {
     return (
