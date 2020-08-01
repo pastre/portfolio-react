@@ -10,7 +10,7 @@
 }
 
 .navbar-sticky {
-  background: #333;
+  background: #000;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,6 +23,7 @@
   height: 2rem;
   margin-right: 0.5rem;
   animation: rotate 0.7s ease-in-out 0.5s;
+  padding-left: 60px;
 }
 
 .navbar--link {
@@ -31,9 +32,9 @@
 }
 
 .navbar--link-item {
-  padding-right: 20px;
   align-content: flex-start;
 }
+
 .lastItem {
   padding-right: 60px;
   align-content: flex-start;

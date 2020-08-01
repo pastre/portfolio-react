@@ -5,6 +5,7 @@ import NavbarItem from './item/NavbarItem';
 import GithubIcon from './githubWhite.svg';
 import LinkedinWhite from './linkedin.svg';
 import MediumIcon from './mediumWhite.svg';
+
 import "./Navbar.css"
 
 const Navbar = ({ sticky }) => (
