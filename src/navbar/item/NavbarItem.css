@@ -1,0 +1,14 @@
+.buttonImage{
+	padding: 10px;
+	color: white;
+}
+
+.itemButton {
+
+	color: none;
+	border: none;
+
+	background: none;
+
+	cursor: pointer;
+}
