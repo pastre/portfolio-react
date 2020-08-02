@@ -13,6 +13,18 @@ class Work extends React.Component {
 
 		this.state = {
 			isLoading: true,
+			repos: [
+				'https://github.com/pastre/color-palette',
+				'https://github.com/pastre/bubbles',
+				'https://github.com/pastre/nc4',
+				'https://github.com/pastre/pick-me-a-movie',
+				'https://github.com/pastre/pocket-pastre',
+				'https://github.com/pastre/studying-with-pc',
+				'https://github.com/pastre/startupeiros',
+				'https://github.com/pastre/celeste',
+				'https://github.com/pastre/nc2',
+				'https://github.com/pastre/Activity-Manager',
+			],
 			urls: [
 				'https://apps.apple.com/br/app/harmonify-cores-e-paletas/id1467642991',
 				'https://apps.apple.com/br/app/bubbles-why-not/id1458220809',
@@ -52,6 +64,7 @@ class Work extends React.Component {
 				descriptionHTML: descriptionHTML,
 				images: images,
 				appstoreUrl: url,
+				githubUrl: this.state.repos[this.state.urls.indexOf(url)]
   			}
   		)
   		console.log("Loaded ", name)
@@ -151,8 +164,15 @@ class Work extends React.Component {
 
 		var rows = []
 		var normallyFlipped = true
+		var loadedApps = []
 
-		for(var i = 1; i < this.state.loadedApps.length; i += 2) {
+		for(var i = 0 ; i < this.state.urls.length; i++) {
+			var app = this.state.loadedApps.find( element => element.appstoreUrl == this.state.urls[i])
+			console.log("app", app)
+			loadedApps.push(app)
+		}
+
+		for(var i = 1; i < loadedApps.length; i += 2) {
 			const app1 = this.state.loadedApps[i]
 			const app2 = this.state.loadedApps[i - 1]
 
@@ -197,7 +217,6 @@ class Work extends React.Component {
 	workCellImage(work) {
 		return (
 			<img  className = "Work-cellImage" src = "https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/ae/5b/4d/ae5b4df7-f3d9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png" />
-				
 		)
 	}
 
@@ -217,28 +236,20 @@ class Work extends React.Component {
 							  <img src={AppleIcon} alt="AppleStore Icon" className="Work-imageLink" />
 							</button>
 							<button className = "Work-itemButton itemButton" onClick={ () => {
-								
+    							window.open( work.githubUrl , "_blank")
 							}} >
 							  <img src={GithubIcon} alt="Github Logo" className="Work-imageLink" />
 							</button>
 						</div>
 					</div>
 
-						<Scrollbar className = "Work-cellDescription">
-							{ this.stripHtml(work.descriptionHTML.replace("<br>", ". "))}
-							
-						</Scrollbar>
+					<Scrollbar className = "Work-cellDescription">
+						{ this.stripHtml(work.descriptionHTML.replace("<br>", ". "))}
+						
+					</Scrollbar>
 				
 				</div>
 			)
-	}
-
-	onAppleClicked() {
-    	window.open( this.props.url , "_blank")
-	}
-
-	onGithubClicked() {
-    	window.open( this.props.url , "_blank")
 	}
 
 	stripHtml(html)
