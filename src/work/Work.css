@@ -40,6 +40,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 
   padding: 0px 10px;
 
@@ -47,29 +48,32 @@
 .Work-cellTitleContainer {
 
   display: flex;
-  font-size: 4vw;
+  font-size: 48px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
+
 }
 
 .Work-cellDescription {
-  font-size: 1.3vw;
+  font-size: 18px;
   text-align: start;
+  padding-top: 20px;
+  word-break: break-all;
+  min-width: 100%;
 }
 
 .Work-imageLink {
-  max-height: 2vw;
-  max-width: auto;
-  padding-left: 10px;
+  height: 24px;
+  width: auto;
+  padding-right: 10px;
 }
 
 .Work-imageWrapper {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  min-width: 50%;
 }
 
 .Work-cellImage {

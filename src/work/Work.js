@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Scrollbar from 'react-scrollbars-custom';
 import GithubIcon from '../navbar/githubWhite.svg';
 
 import './Work.css';
@@ -110,8 +110,6 @@ class Work extends React.Component {
 	}
 
 	workCells() {
-
-
 		var cells = []
 
 		for(var i = 0; i < this.state.loadedApps.length; i++) {
@@ -163,17 +161,26 @@ class Work extends React.Component {
 							{ work.name }
 						</div>
 						<div className = "Work-imageWrapper">
-							<img className = "Work-imageLink" src = { GithubIcon } />
+							<img className = "Work-imageLink padding-right: 20px" src = { GithubIcon } />
 							<img className = "Work-imageLink" src = { GithubIcon } />
 						</div>
 					</div>
 
-					<div className = "Work-cellDescription">
-						{ work.descriptionHTML.trim() }
-					</div>
+						<Scrollbar className = "Work-cellDescription">
+							{ this.stripHtml(work.descriptionHTML.replace("<br>", ". "))}
+							
+						</Scrollbar>
+				
 				</div>
 			)
 	}
+
+	stripHtml(html)
+		{
+		   var tmp = document.createElement("DIV");
+		   tmp.innerHTML = html;
+		   return tmp.textContent || tmp.innerText || "";
+		}
 }
 
 export default Work;
