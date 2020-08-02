@@ -1,6 +1,8 @@
 import React from 'react';
 import Scrollbar from 'react-scrollbars-custom';
+
 import GithubIcon from '../navbar/githubWhite.svg';
+import AppleIcon from './applelogo.svg';
 
 import './Work.css';
 
@@ -49,9 +51,10 @@ class Work extends React.Component {
 				name: name,
 				descriptionHTML: descriptionHTML,
 				images: images,
+				appstoreUrl: url,
   			}
   		)
-  		console.log(images)
+  		console.log("Loaded ", name)
   		this.setState({ loadedApps:  joined })
 	}
 
@@ -60,6 +63,10 @@ class Work extends React.Component {
 
 		xhr.addEventListener('load', () => {
 			this.doScrap(xhr.responseText, url)
+	    })
+
+		xhr.addEventListener('error', () => {
+			console.log("DEU RUIM")
 	    })
 	    // open the request with the verb and the url
 	    xhr.open('GET', url)
@@ -75,15 +82,46 @@ class Work extends React.Component {
 				imageTags: "imageTags",
 				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
   			}, 
+
+  			  			{
+				name: "Appzao",
+				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
+				imageTags: "imageTags",
+				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
+  			}, 
+  			  			{
+				name: "Appzao",
+				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
+				imageTags: "imageTags",
+				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
+  			}, 
+  			  			{
+				name: "Appzao",
+				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
+				imageTags: "imageTags",
+				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
+  			}, 
+  			  			{
+				name: "Appzao",
+				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
+				imageTags: "imageTags",
+				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
+  			}, 
+  			  			{
+				name: "Appzao",
+				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
+				imageTags: "imageTags",
+				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
+  			}, 
   		)
 
-  		this.setState({ loadedApps:  joined })
-		// this.state.urls.forEach( value => this.doGet(value) )
+  		// this.setState({ loadedApps:  joined })
+		this.state.urls.forEach( value => this.doGet(value) )
 	}
 
 	isLoading() {
-		return false
-		return this.state.loadedApps.length === this.state.urls.length
+		console.log(this.state.loadedApps.length, this.state.urls.length)
+		return this.state.loadedApps.length !== this.state.urls.length
 	}
 
 	render() {
@@ -104,23 +142,35 @@ class Work extends React.Component {
 		    	<div className = "Work-header"> 
 		    		Bruno's <b>Work</b>
 		    	</div>
-		    	{ this.workCells() }
+		    	{ this.workTable() }
 		    </div>
 		);
 	}
 
-	workCells() {
-		var cells = []
+	workTable() {
 
-		for(var i = 0; i < this.state.loadedApps.length; i++) {
-			const app = this.state.loadedApps[i]
-			var newCell = this.workCell(app, true)
+		var rows = []
+		var normallyFlipped = true
 
-			cells.push(newCell)
+		for(var i = 1; i < this.state.loadedApps.length; i += 2) {
+			const app1 = this.state.loadedApps[i]
+			const app2 = this.state.loadedApps[i - 1]
+
+			var newRow = this.workRows([this.workCell(app1, normallyFlipped), this.workCell(app2, !normallyFlipped)])
+			normallyFlipped = !normallyFlipped
+			rows.push(newRow)
 		}
 
 		return ( 
-			<div className = "Work-cellsContainer">
+			<div className = "Work-cellsTable">
+				{ rows }
+			</div>
+		);
+	}
+
+	workRows(cells) {
+		return ( 
+			<div className = "Work-cellsRowContainer">
 				{ cells }
 			</div>
 		);
@@ -160,9 +210,17 @@ class Work extends React.Component {
 						<div className = "Work-cellTitle">
 							{ work.name }
 						</div>
-						<div className = "Work-imageWrapper">
-							<img className = "Work-imageLink" src = { GithubIcon } />
-							<img className = "Work-imageLink" src = { GithubIcon } />
+						<div className = "Work-imageLink">
+							<button className = "Work-itemButton itemButton" onClick={ () => {
+   								window.open( work.appstoreUrl , "_blank")
+							}} >
+							  <img src={AppleIcon} alt="AppleStore Icon" className="Work-imageLink" />
+							</button>
+							<button className = "Work-itemButton itemButton" onClick={ () => {
+								
+							}} >
+							  <img src={GithubIcon} alt="Github Logo" className="Work-imageLink" />
+							</button>
 						</div>
 					</div>
 
@@ -173,6 +231,14 @@ class Work extends React.Component {
 				
 				</div>
 			)
+	}
+
+	onAppleClicked() {
+    	window.open( this.props.url , "_blank")
+	}
+
+	onGithubClicked() {
+    	window.open( this.props.url , "_blank")
 	}
 
 	stripHtml(html)
