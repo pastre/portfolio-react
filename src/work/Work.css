@@ -1,22 +1,81 @@
-.App {
+.Work {
   text-align: center;
   background-color: #000;
   font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 
-.App-header {
-  background-color: #000;
+.Work-header {
+  font-size: calc(2vw + 2vh + 2vmin);
+  min-width: 100vw;
+  padding-bottom: 100px;
+}
+
+.Work-cellsContainer {
+
+  max-width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+
+.Work-workCell {
+  
+  max-width: 50vw;
+  max-height: 30vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+}
+
+.Work-cellContent {
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
+  padding: 0px 10px;
+
+}
+.Work-cellTitleContainer {
+
+  display: flex;
+  font-size: 4vw;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
 }
 
-.App-link {
-  color: #fff;
+.Work-cellDescription {
+  font-size: 1.3vw;
+  text-align: start;
+}
+
+.Work-imageLink {
+  max-height: 2vw;
+  max-width: auto;
+  padding-left: 10px;
+}
+
+.Work-imageWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  min-width: 50%;
+}
+
+.Work-cellImage {
+  max-height: 100%;
+  min-width: auto;
+  border-radius: 10px;
 }
 
 @keyframes App-logo-spin {

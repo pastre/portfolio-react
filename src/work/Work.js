@@ -1,4 +1,7 @@
 import React from 'react';
+
+import GithubIcon from '../navbar/githubWhite.svg';
+
 import './Work.css';
 
 class Work extends React.Component {
@@ -65,12 +68,13 @@ class Work extends React.Component {
 	}
 
 	loadApps() {
-  		var joined = this.state.loadedApps.concat({
-				name: "name",
+  		var joined = this.state.loadedApps.concat(
+  			{
+				name: "Appzao",
 				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
 				imageTags: "imageTags",
 				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
-  			}
+  			}, 
   		)
 
   		this.setState({ loadedApps:  joined })
@@ -78,7 +82,7 @@ class Work extends React.Component {
 	}
 
 	isLoading() {
-		return true
+		return false
 		return this.state.loadedApps.length === this.state.urls.length
 	}
 
@@ -91,12 +95,84 @@ class Work extends React.Component {
 			);
 		}
 
+		return this.workView()
+	}
 
+	workView() {
 		return (
-		    <div>
-
+		    <div className = "Work">
+		    	<div className = "Work-header"> 
+		    		Bruno's <b>Work</b>
+		    	</div>
+		    	{ this.workCells() }
 		    </div>
 		);
+	}
+
+	workCells() {
+
+
+		var cells = []
+
+		for(var i = 0; i < this.state.loadedApps.length; i++) {
+			const app = this.state.loadedApps[i]
+			var newCell = this.workCell(app, true)
+
+			cells.push(newCell)
+		}
+
+		return ( 
+			<div className = "Work-cellsContainer">
+				{ cells }
+			</div>
+		);
+	}
+
+	workCell(work, isImageFirst) {
+
+		if (isImageFirst) return (
+			<div className = "Work-workCell">
+				{ this.workCellImage(work) }
+				{ this.workCellContent(work) }
+			</div>
+		);
+
+
+		return (
+			<div className = "Work-workCell">
+				{ this.workCellContent(work) }
+				{ this.workCellImage(work) }
+			</div>
+		)
+	}
+
+	workCellImage(work) {
+		return (
+			<img  className = "Work-cellImage" src = "https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/ae/5b/4d/ae5b4df7-f3d9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png" />
+				
+		)
+	}
+
+	workCellContent(work) {
+		return (
+
+				<div className = "Work-cellContent">
+					<div className = "Work-cellTitleContainer">
+
+						<div className = "Work-cellTitle">
+							{ work.name }
+						</div>
+						<div className = "Work-imageWrapper">
+							<img className = "Work-imageLink" src = { GithubIcon } />
+							<img className = "Work-imageLink" src = { GithubIcon } />
+						</div>
+					</div>
+
+					<div className = "Work-cellDescription">
+						{ work.descriptionHTML.trim() }
+					</div>
+				</div>
+			)
 	}
 }
 
