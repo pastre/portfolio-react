@@ -161,7 +161,7 @@ class Work extends React.Component {
 							{ work.name }
 						</div>
 						<div className = "Work-imageWrapper">
-							<img className = "Work-imageLink padding-right: 20px" src = { GithubIcon } />
+							<img className = "Work-imageLink" src = { GithubIcon } />
 							<img className = "Work-imageLink" src = { GithubIcon } />
 						</div>
 					</div>
