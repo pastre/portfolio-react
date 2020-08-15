@@ -39,7 +39,6 @@
   flex-direction: row;
   justify-content: space-evenly;
 
-
   padding: 40px 0px;
 }
 
@@ -76,7 +75,7 @@
 
 .Work-imageLink {
   height: 24px;
-  width: auto;
+  width: 24px;
 }
 
 .Work-imageWrapper {

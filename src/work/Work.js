@@ -92,98 +92,6 @@ class Work extends React.Component {
 	    xhr.send()
 	}
 
-	loadApps() {
-  		var joined = this.state.loadedApps.concat(
-  			{
-				name: "Appzao",
-				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
-				imageTags: "imageTags",
-				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
-  			}, 
-  			{
-				name: "Appzao",
-				descriptionHTML: "Baixe agora a extensão para macOS: https://pastre.github.io/harmonify/index.html<br><br>Harmonify é um app que permite encontrar cores diretamente da sua câmera e automaticamente gerar uma paleta baseada nessa cor, ou salvar a cor para referência depois.<br>Harmonify vem com 4 templates de paletas por padrão: Monochromatic, Analog, Complementary and Triads.<br>Paletas de cores aparecem na aplicação para macOS, permitindo assim a melhor integração com diversas ferramentas como Sketch, Illustrator, Photoshopou até mesmo o XCode.<br>Quando salvas, cores e paletas podem ser exportadas como texto, ou um arquivo no formato .sketchpallete, que pode ser aberto diretamente no Sketch.<br>Harmonify disponibiliza também detelhes de cores, seja em código HEX ou RGB, e é perfeito para qualquer um buscando cores do mundo real",
-				imageTags: "imageTags",
-				images: ["https://is5-ssl.mzstatic.com/image/thumb/Purple123…9-6bd3-3888-0b281d255f59/pr_source.png/230x0w.png", "https://is3-ssl.mzstatic.com/image/thumb/Purple113…9-52a9-e421-059c450dd380/pr_source.png/230x0w.png", "https://is1-ssl.mzstatic.com/image/thumb/Purple123…5-083c-80b7-8b86d5f38fc8/pr_source.png/230x0w.png"],
-  			}, 
-  		)
-
-		if (SHOULD_MOCK) {
-  			this.setState({ loadedApps:  joined })
-		} else {
-			this.state.urls.forEach( value => this.doGet(value) )
-		}
-	}
-
-	isLoading() {
-		if (SHOULD_MOCK) return false
-	
-		return this.state.loadedApps.length !== this.state.urls.length
-	}
-
-	render() {
-		if(this.isLoading()) {
-			return (
-			    <div>
-
-			    </div>
-			);
-		}
-
-		return this.workView()
-	}
-
-	workView() {
-		return (
-		    <div className = "Work">
-		    	<div className = "Work-header"> 
-		    		Bruno's <b>Work</b>
-		    	</div>
-		    	{ this.workTable() }
-		    </div>
-		);
-	}
-
-	workTable() {
-
-		var rows = []
-		var normallyFlipped = true
-		var loadedApps = []
-
-		if (SHOULD_MOCK) {
-			loadedApps = this.state.loadedApps.strip()
-		} else {
-			loadedApps = []
-			this.state.urls.forEach( url => {
-				var app = this.state.loadedApps.find( element => element.appstoreUrl == url)
-				loadedApps.push(app)
-
-			})
-		}
-
-		for(var i = 1; i < loadedApps.length; i += 2) {
-			const app1 = loadedApps[i]
-			const app2 = loadedApps[i - 1]
-
-			var newRow = this.workRows([this.workCell(app2, normallyFlipped), this.workCell(app1, !normallyFlipped)])
-			normallyFlipped = !normallyFlipped
-			rows.push(newRow)
-		}
-
-		return ( 
-			<div className = "Work-cellsTable">
-				{ rows }
-			</div>
-		);
-	}
-
-	workRows(cells) {
-		return ( 
-			<div className = "Work-cellsRowContainer">
-				{ cells }
-			</div>
-		);
-	}
 
 	workCell(work, isImageFirst) {
 
@@ -250,12 +158,11 @@ class Work extends React.Component {
 			)
 	}
 
-	stripHtml(html)
-		{
+	stripHtml(html) {
 		   var tmp = document.createElement("DIV");
 		   tmp.innerHTML = html;
 		   return tmp.textContent || tmp.innerText || "";
-		}
+	}
 }
 
 export default Work;
